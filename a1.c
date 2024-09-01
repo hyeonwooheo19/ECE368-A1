@@ -1,14 +1,11 @@
 #include <stdio.h>
 
 void coin_combination(int cents) {
-    for(int pennies = 0; pennies <= cents; pennies++) {
-        for(int nickels = 0; nickels <= (cents / 5); nickels++) {
-            for(int dimes = 0; dimes <= (cents / 10); dimes++) {
-                for(int quarters = 0; quarters <= (cents / 25); quarters++) {
-                    if(pennies + (5 * nickels) + (10 * dimes) + (25 * quarters) == cents) {
-                        printf("%d quarter(s), %d dime(s), %d nickel(s), %d pennie(s)\n", quarters, dimes, nickels, pennies);
-                    }
-                }
+    for(int quarters = (cents / 25); quarters >= 0; quarters--) {
+        for(int dimes = (cents - (quarters * 25)) / 10; dimes >= 0; dimes--) {
+            for(int nickels = (cents - (quarters * 25) - (dimes * 10)) / 5; nickels >= 0; nickels--) {
+                int pennies = cents - (quarters * 25) - (dimes * 10) - (nickels * 5);
+                printf("%d quarter(s), %d dime(s), %d nickel(s), %d pennie(s)\n", quarters, dimes, nickels, pennies);
             }
         }
     }
