@@ -1,14 +1,14 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
-TARGET = a1
+EXE = a1
 SRCS = a1.c
 
-all: $(TARGET)
+all: $(EXE)
 
-$(TARGET): $(SRCS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRCS)
+$(EXE): $(SRCS)
+	$(CC) $(CFLAGS) -o $(EXE) $(SRCS)
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(EXE)
 
 .PHONY: all clean
